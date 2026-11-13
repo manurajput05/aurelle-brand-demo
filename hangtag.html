@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AURELLE Premium Hangtag</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #e9e5dd;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 15px;
+}
+
+.tag {
+    width: 300px;
+    min-height: 470px;
+    background: #171817;
+    color: #f3efe6;
+    text-align: center;
+    padding: 35px 20px;
+    border: 1px solid #c8ad7f;
+    position: relative;
+}
+
+.brand {
+    font-family: Georgia, serif;
+    font-size: 29px;
+    letter-spacing: 5px;
+    margin-top: 25px;
+}
+
+.line {
+    width: 65px;
+    height: 1px;
+    background: #c8ad7f;
+    margin: 25px auto;
+}
+
+.tag img {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+}
+
+.product {
+    font-family: Georgia, serif;
+    font-size: 23px;
+    margin-top: 20px;
+}
+
+.subtitle {
+    color: #c8ad7f;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-top: 10px;
+}
+
+.qr {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto 10px;
+}
+
+.scan {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #c8ad7f;
+}
+
+.bottom {
+    font-family: Georgia, serif;
+    font-size: 13px;
+    margin-top: 25px;
+}
+
+button {
+    margin-top: 25px;
+    padding: 14px 25px;
+    background: #171817;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+@media print {
+    body {
+        background: white;
+        padding: 0;
+    }
+
+    button {
+        display: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="tag">
+
+    <div class="brand">AURELLE</div>
+
+    <div class="line"></div>
+
+    <img
+    src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=400"
+    alt="Product">
+
+    <div class="product">Ivory Elegance</div>
+
+    <div class="subtitle">SIGNATURE COLLECTION 2026</div>
+
+    <div class="line"></div>
+
+    <div id="qr" class="qr"></div>
+
+    <div class="scan">SCAN TO DISCOVER</div>
+
+    <div class="bottom">Every Piece Has A Story.</div>
+
+</div>
+
+<button onclick="window.print()">PRINT HANGTAG</button>
+
+<script>
+const productURL = new URL(
+    "product.html?product=ivory-elegance",
+    window.location.href
+).href;
+
+new QRCode(document.getElementById("qr"), {
+    text: productURL,
+    width: 110,
+    height: 110
+});
+</script>
+
+</body>
+</html>
